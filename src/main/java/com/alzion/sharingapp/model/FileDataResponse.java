@@ -13,4 +13,10 @@ public class FileDataResponse {
     private MediaType mediaType;
     private byte[] fileData;
     private String fileName;
+
+    public FileDataResponse(MediaType mediaType, byte[] fileData, String fileName) {
+        this.mediaType = mediaType;
+        this.fileData = fileData;
+        this.fileName = fileName;
+    }
 }

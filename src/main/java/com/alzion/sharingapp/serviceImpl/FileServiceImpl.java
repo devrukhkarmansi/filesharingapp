@@ -36,7 +36,7 @@ public class FileServiceImpl implements FileService {
 
 
     @Value("${file.upload-dir}")
-    private String uploadDir;
+    public String uploadDir;
 
     // Encrypt file and save to disk
     @Override
