@@ -120,6 +120,6 @@ Click Send. You should receive the decrypted file as a response.
 ### Future Enhancements
 - Consider adding user authentication to restrict access to uploaded files.
 - Explore the use of more advanced encryption techniques, such as public-key cryptography, for even greater security.
-- Can upload files on S3 istead on same directory
+- Can upload files on S3 intead of same directory
 
 
