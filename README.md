@@ -46,6 +46,55 @@ The File Sharing App is a simple RESTful API built using Java, designed for secu
 
 3. **File Cleanup**: Automatically handled by the application (scheduled task for files older than 48 hours).
 
+
+## Getting Started
+
+This section will guide you through the process of setting up and testing the File Sharing App.
+
+### Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+- **Java**: Version 11 or higher must be installed on your machine.
+- **Maven**: Used for managing the project dependencies.
+- **Postman**: A popular tool for testing APIs. You can download it from [Postman Download](https://www.postman.com/downloads/).
+
+### Clone the Repository
+1. Run the following command:
+
+   ```bash
+   git clone https://github.com/devrukhkarmansi/filesharingapp.git
+
+Start the application.
+
+### Test the APIs Using Postman
+
+#### 1. Upload File API
+
+To upload a file and provide a passcode:
+
+1. Open Postman.
+2. Create a new `POST` request to the following URL:
+
+   ```bash
+   http://localhost:8080/files/upload
+3. In the Body tab, select **form-data**.
+4. Add the following key-value pairs:
+   - **Key:** `file` (select File as the type) - Choose the file you want to upload.
+   - **Key:** `passcode` (select Text as the type) - Enter a secure passcode for encryption.
+5. Click **Send**. You should receive a response containing a unique URL for downloading the file.
+
+### Download File API
+
+To download the file using the unique URL and passcode:
+
+1. Create a new **GET** request in Postman.
+2. Use the unique URL obtained from the upload response and append the passcode as a query parameter:
+   
+
+Click Send. You should receive the decrypted file as a response.
+
+
 ## Additional Notes
 
 ### Encryption Details
