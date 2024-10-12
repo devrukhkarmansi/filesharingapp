@@ -32,6 +32,7 @@ The File Sharing App is a simple RESTful API built using Java, designed for secu
 - **Spring Boot**: Framework for building the REST API.
 - **Maven**: Dependency management.
 - **JUnit & Mockito**: For unit testing.
+- **MongoDB**: For storing files metadata.
 - **Postman**: For testing API endpoints.
 
 ## API Endpoints
@@ -119,6 +120,7 @@ Click Send. You should receive the decrypted file as a response.
 
 ### Future Enhancements
 - Consider adding user authentication to restrict access to uploaded files.
+- We can allow users to add multiple files and even support larger file sizes
 - Explore the use of more advanced encryption techniques, such as public-key cryptography, for even greater security.
 - Can upload files on S3 intead of same directory
 
