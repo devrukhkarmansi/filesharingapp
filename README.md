@@ -38,7 +38,8 @@ The File Sharing App is a simple RESTful API built using Java, designed for secu
 ## API Endpoints
 
 1. **Upload File**: `POST files/upload`
-   - Request Body: Multipart file and passcode.
+   - Request Body: `file` and `passcode`.
+     use form-data as body type.
    - Response: Unique URL for downloading the file.
 
 2. **Download File**: `GET files/download/{fileId}`
