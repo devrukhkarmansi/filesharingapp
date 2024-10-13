@@ -3,6 +3,7 @@ package com.alzion.sharingapp.controller;
 
 import com.alzion.sharingapp.model.FileDataResponse;
 import com.alzion.sharingapp.service.FileService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ContentDisposition;
 import org.springframework.http.HttpHeaders;
@@ -19,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/files")
+@Slf4j
 public class FileController {
 
     @Autowired
@@ -32,6 +34,7 @@ public class FileController {
             String uniqueURL = fileService.encryptAndSaveFile(file, passcode);
             return new ResponseEntity<>(uniqueURL, HttpStatus.OK);
         } catch (Exception e) {
+            log.error("Error while uploading file! {}",e.getMessage());
             return new ResponseEntity<>("File upload failed", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -54,6 +57,7 @@ public class FileController {
                     .headers(headers)
                     .body(decryptedFile.getFileData());
         } catch (Exception e) {
+            log.error("Error while downloading file! {}",e.getMessage());
             return new ResponseEntity<>("Invalid passcode or file not found", HttpStatus.BAD_REQUEST);
         }
     }
@@ -61,8 +65,6 @@ public class FileController {
     // Scheduled task to delete files older than 48 hours
     @Scheduled(cron = "0 0 * * * ?") // Every hour
     public void deleteOldFiles() {
-
         fileService.deleteOldFiles();
-
     }
 }
